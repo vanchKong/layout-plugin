@@ -2,6 +2,8 @@
 
 # Compact Mode
 
+If you have any questions, you can raise an issue
+
 <!-- - Customize `line-height` within a block
 - Customize the `gap` between blocks
 - Set all blocks' `padding` and `margin` to `0` by default
