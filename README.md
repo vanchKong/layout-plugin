@@ -2,6 +2,8 @@
 
 # Compact Mode
 
+This is a plugin for Siyuan,compact mode can be achieved quickly.
+
 If you have any questions, you can raise an issue
 
 <!-- - Customize `line-height` within a block
