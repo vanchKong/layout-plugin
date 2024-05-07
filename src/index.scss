@@ -1,26 +1,105 @@
-#helloPanel {
-    border: 1px rgb(189, 119, 119) dashed;
+:root {
+	--custom-gap: 4px;
+	--custom-line-height: 1;
 }
 
-.plugin-sample {
-    &__custom-tab {
-        background-color: var(--b3-theme-background);
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+// .b3-typography p,
+// .b3-typography [data-node-id],
+// .protyle-wysiwyg p,
+// .protyle-wysiwyg [data-node-id] [spellcheck] {
+// 	line-height: var(--custom-line-height);
+// }
 
-    &__custom-dock {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+// #layouts div.layout-tab-container > div.protyle > div.protyle-content > div.protyle-wysiwyg {
+// 	p {
+// 		line-height: var(--custom-line-height) !important;
+// 	}
+// 	[data-node-id] {
+// 		margin-top: var(--custom-node-margin-tb);
+// 		margin-bottom: var(--custom-node-margin-tb);
 
-    &__time {
-        background: var(--b3-card-info-background);
-        border-radius: 4px;
-        padding: 2px 8px;
-    }
+// 		&.p {
+// 			line-height: var(--custom-line-height) !important;
+// 		}
+// 	}
+// }
+
+.protyle-util {
+	right: 373.984px !important;
+	left: unset !important;
+}
+
+#layouts div.layout-tab-container > div.protyle > div.protyle-content > div.protyle-wysiwyg {
+	gap: var(--custom-gap) !important;
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	> .p {
+		padding: 0 !important;
+		margin: 0 !important;
+		line-height: var(--custom-line-height) !important;
+	}
+	> .list {
+		margin: 0 !important;
+		padding: 0 !important;
+
+		> .li {
+			padding: 0 !important;
+			margin: 0 !important;
+			min-height: unset;
+			> .protyle-action {
+				height: 25px;
+				width: 14px !important;
+			}
+			> .p {
+				padding: 0 !important;
+				margin: 0 0 0 16px !important;
+			}
+		}
+	}
+	> .bq {
+		margin: 0 !important;
+		padding: 0 !important;
+		> .p {
+			margin: 0 !important;
+		}
+	}
+	> .code-block {
+		margin: 4px 0 !important;
+		padding: 0 !important;
+
+		.hljs {
+			position: relative;
+			// z-index: 1;
+			line-height: 1.4 !important;
+			padding: 0.4em 4px 0.4em 10px;
+		}
+		.protyle-action {
+			z-index: unset;
+			justify-content: flex-end;
+			.fn__flex-1 {
+				flex: unset !important;
+			}
+			.protyle-action__language {
+				position: relative;
+				z-index: 2;
+				text-align: end;
+				margin-right: 10px;
+			}
+			.b3-tooltips__nw {
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+	> .hr {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
 }
