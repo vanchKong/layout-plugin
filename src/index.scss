@@ -45,6 +45,35 @@
 		margin: 0 !important;
 		line-height: var(--custom-line-height) !important;
 	}
+
+	@mixin nested-list($level) {
+		$indent: $level * 10px;
+		.abcdefg1234 {
+			background-color: aliceblue;
+		}
+		> .list {
+			margin: 0 !important;
+			padding: 0 !important;
+			padding-left: $indent !important;
+
+			> .li {
+				padding: 0 !important;
+				margin: 0 !important;
+				min-height: unset;
+				> .protyle-action {
+					height: 25px;
+					width: 14px !important;
+				}
+				> .p {
+					padding: 0 !important;
+					margin: 0 0 0 16px !important;
+				}
+				@if $level < 5 {
+					@include nested-list($level + 1);
+				}
+			}
+		}
+	}
 	> .list {
 		margin: 0 !important;
 		padding: 0 !important;
@@ -61,8 +90,36 @@
 				padding: 0 !important;
 				margin: 0 0 0 16px !important;
 			}
+			@include nested-list(1);
 		}
 	}
+	// $base-indent: 10px;
+	// @mixin nested-list($level: 0) {
+	// 	$indent: $level * $base-indent;
+	// 	> .list {
+	// 		margin: 0 !important;
+	// 		padding: 0 !important;
+
+	// 		> .li {
+	// 			padding: 0 !important;
+	// 			margin: 0 !important;
+	// 			min-height: unset;
+	// 			> .list {
+	// 				@include nested-list($level + 1);
+	// 			}
+	// 			> .protyle-action {
+	// 				height: 25px;
+	// 				width: 14px !important;
+	// 			}
+	// 			> .p {
+	// 				padding: 0 !important;
+	// 				margin: 0 0 0 16px !important;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// @include nested-list();
+
 	> .bq {
 		margin: 0 !important;
 		padding: 0 !important;
