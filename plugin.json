@@ -1,22 +1,22 @@
 {
-	"name": "plugin-compact-mode",
+	"name": "Line Height Tool",
 	"author": "Vanch",
 	"url": "https://github.com/vanchKong/layout-plugin",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minAppVersion": "3.0.12",
 	"backends": ["all"],
 	"frontends": ["all"],
 	"displayName": {
-		"en_US": "Compact Mode",
-		"zh_CN": "紧凑模式"
+		"en_US": "Line Height Tool",
+		"zh_CN": "行高工具"
 	},
 	"description": {
-		"en_US": "Compact Mode",
-		"zh_CN": "紧凑模式"
+		"en_US": "Line Height Tool",
+		"zh_CN": "行高工具"
 	},
 	"readme": {
 		"en_US": "README.md",
 		"zh_CN": "README_zh_CN.md"
 	},
-	"keywords": ["plugin", "compact", "紧凑", "布局", "样式", "style"]
+	"keywords": ["plugin", "line height", "行高", "布局", "样式", "style"]
 }

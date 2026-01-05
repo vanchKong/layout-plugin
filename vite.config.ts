@@ -10,7 +10,7 @@ import vitePluginYamlI18n from './yaml-plugin';
 
 const args = minimist(process.argv.slice(2))
 const isWatch = args.watch || args.w || false
-const devDistDir = "dev"
+const devDistDir = "/Users/vanch/SiYuan/data/plugins/plugin-compact-mode"
 const distDir = isWatch ? devDistDir : "dist"
 
 console.log("isWatch=>", isWatch)
