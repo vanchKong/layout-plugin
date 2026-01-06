@@ -2,7 +2,7 @@
 	"name": "plugin-compact-mode",
 	"author": "Vanch",
 	"url": "https://github.com/vanchKong/layout-plugin",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"minAppVersion": "3.0.12",
 	"backends": ["all"],
 	"frontends": ["all"],
