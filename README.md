@@ -2,7 +2,7 @@
 
 # Compact Mode
 
-This is a plugin for Siyuan,compact mode can be achieved quickly.
+This is a plugin for SiYuan Notes that can adjust line height or block spacing.
 
 If you have any questions, you can raise an issue
 
