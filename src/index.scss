@@ -1,6 +1,7 @@
 :root {
-	--custom-gap: 4px;
-	--custom-line-height: 1;
+	--custom-gap: 5px;
+	--custom-line-height: 1.625;
+	--protyle-font-size: 16px;
 }
 
 .b3-typography p,
@@ -14,152 +15,40 @@
 	p {
 		line-height: var(--custom-line-height) !important;
 	}
+
 	[data-node-id] {
-		margin-top: var(--custom-node-margin-tb);
-		margin-bottom: var(--custom-node-margin-tb);
+		margin-top: var(--custom-gap);
+		margin-bottom: var(--custom-gap);
 
 		&.p {
 			line-height: var(--custom-line-height) !important;
 		}
 	}
+
+	// 列表项的 action 图标，和内容块对齐
+	div.li[data-node-id] {
+		--list-action-offset-line-heigth: calc((var(--custom-line-height) - 1.625) * var(--protyle-font-size) / 2);
+		--list-action-offset-sum: calc(var(--list-action-offset-line-heigth) + var(--custom-gap));
+		> div.protyle-action {
+			top: var(--list-action-offset-sum);
+		}
+		&::before {
+			--origin-height: 37px;
+			top: calc(var(--origin-height) + var(--list-action-offset-sum));
+			// height: calc(100% - var(--origin-height) - var(--list-action-offset-sum));
+		}
+	}
+
+	.av__cell[data-dtype='text'][data-wrap='true'] {
+		line-height: var(--custom-line-height);
+	}
 }
 
-.protyle-util {
-	right: 373.984px !important;
-	left: unset !important;
-}
-
-#layouts div.layout-tab-container > div.protyle > div.protyle-content > div.protyle-wysiwyg {
-	gap: var(--custom-gap) !important;
-	.h1,
-	.h2,
-	.h3,
-	.h4,
-	.h5,
-	.h6 {
-		margin: 0 !important;
-		padding: 0 !important;
-	}
-	> .p {
-		padding: 0 !important;
-		margin: 0 !important;
-		line-height: var(--custom-line-height) !important;
-	}
-
-	@mixin nested-list($level) {
-		$indent: $level * 10px;
-		.abcdefg1234 {
-			background-color: aliceblue;
-		}
-		> .list {
-			margin: 0 !important;
-			padding: 0 !important;
-			padding-left: $indent !important;
-
-			> .li {
-				padding: 0 !important;
-				margin: 0 !important;
-				min-height: unset;
-				> .protyle-action {
-					height: 25px;
-					width: 14px !important;
-				}
-				> .p {
-					padding: 0 !important;
-					margin: 0 0 0 16px !important;
-				}
-				@if $level < 5 {
-					@include nested-list($level + 1);
-				}
-			}
-		}
-	}
-	> .list {
-		margin: 0 !important;
-		padding: 0 !important;
-
-		> .li {
-			padding: 0 !important;
-			margin: 0 !important;
-			min-height: unset;
-			flex-direction: row;
-			align-items: center;
-			> .protyle-action {
-				align-self: anchor-center;
-				height: 25px;
-				width: 14px !important;
-			}
-			> .p {
-				padding: 0 !important;
-				margin: 0 0 0 16px !important;
-			}
-			@include nested-list(1);
-		}
-	}
-	// $base-indent: 10px;
-	// @mixin nested-list($level: 0) {
-	// 	$indent: $level * $base-indent;
-	// 	> .list {
-	// 		margin: 0 !important;
-	// 		padding: 0 !important;
-
-	// 		> .li {
-	// 			padding: 0 !important;
-	// 			margin: 0 !important;
-	// 			min-height: unset;
-	// 			> .list {
-	// 				@include nested-list($level + 1);
-	// 			}
-	// 			> .protyle-action {
-	// 				height: 25px;
-	// 				width: 14px !important;
-	// 			}
-	// 			> .p {
-	// 				padding: 0 !important;
-	// 				margin: 0 0 0 16px !important;
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// @include nested-list();
-
-	> .bq {
-		margin: 0 !important;
-		padding: 0 !important;
-		> .p {
-			margin: 0 !important;
-		}
-	}
-	> .code-block {
-		margin: 4px 0 !important;
-		padding: 0 !important;
-
-		.hljs {
-			position: relative;
-			// z-index: 1;
-			line-height: 1.4 !important;
-			padding: 0.4em 4px 0.4em 10px;
-		}
-		.protyle-action {
-			z-index: unset;
-			justify-content: flex-end;
-			.fn__flex-1 {
-				flex: unset !important;
-			}
-			.protyle-action__language {
-				position: relative;
-				z-index: 2;
-				text-align: end;
-				margin-right: 10px;
-			}
-			.b3-tooltips__nw {
-				position: relative;
-				z-index: 2;
-			}
-		}
-	}
-	> .hr {
-		padding: 0 !important;
-		margin: 0 !important;
-	}
+/**
+ * After SiYuan 3.1.5, the code block has changed its DOM structure.
+ * The line numbers and code body have different font sizes, making it hard to align them with the same line-height, as line-height is a ratio without a unit (px, rem).
+ * Here, we temporarily skip the line-height setting for the code block.
+ */
+.protyle-wysiwyg [data-node-id].code-block [spellcheck] {
+	line-height: inherit;
 }
